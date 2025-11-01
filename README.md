@@ -1,37 +1,11 @@
 # netty-demo
 
 #### 介绍
-netty应用实践
+采用 client 和 server 端进行通道传输
+client 利用 EventLoopGroup使用NioSocketChannel初始化channel,并配置端口，同步等待连接服务端响应，在client端中自定义ChannelHandlerAdapter的子类重写channelActive方法，从Buffer里把byte[]数组的信息写入进ChannelHandlerContext上下文里。
 
-#### 软件架构
-软件架构说明
+server 利用 ServerBootstrap 初始化化子ChildChannelHandler并加入了自定义ChannelHandlerAdapter的子类，子类对channelRead 和 exceptionCaught两个方法进行重写。
 
+#### 依赖包
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+采用io.netty.netty-all 5.0.0 Alphal版本
